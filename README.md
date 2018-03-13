@@ -33,6 +33,11 @@ docker build -t node/gcloud .
 docker run -p 22:22 -p 80:8080  -ti --name <nom du container> --mount type=bind,src="$(pwd)",dst=/projet node/gcloud
 ```
 
+pour version docker 17.04 (linux) 
+
+```
+docker run -p 22:22 -p 80:8080 -p 8000:8000 -ti --name <nom du container> -v "$(pwd)":/projet node/gcloud
+```
 Ensuite vous devez initialiser votre connexion à google cloud échange de clef
 
 ```
