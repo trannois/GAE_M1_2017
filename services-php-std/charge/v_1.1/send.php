@@ -35,11 +35,9 @@ try {
     // boucle effectuant les requêtes
     for ($i = 0; $i < $nbr; $i++) {
 
-        $start = microtime();
+        $start = microtime(true);
         $req = $client->request('GET', '/index.php');
-        $diff = microtime() - $start; // calcule du delay
-
-        if ($diff < 0) $diff = 0; // TODO : chercher pourquoi
+        $diff = microtime(true) - $start; // calcule du delay
 
         // si la réponse n'est pas bonne on donne un dela
         if ( $req->getStatusCode() == '200' ) {
@@ -66,5 +64,5 @@ try {
 // envoie de la réponse au format text/json
 header('content-type:text/json');
 
-$payload = [ 'serie' => $data, 'moyenne' => $moyenne ];
+$payload = [ 'api'=>'1.1', 'serie' => $data, 'moyenne' => $moyenne ];
 echo json_encode($payload);

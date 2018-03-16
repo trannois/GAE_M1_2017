@@ -1,3 +1,10 @@
+<?php
+    if (isset ($_GET['v']) && $_GET['v'] === "1_0") {
+        setcookie("GOOGAPPUID", '250',  time()+36000, '/' );
+    } else {
+        setcookie("GOOGAPPUID", '750',  time()+36000, '/' );
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,8 +34,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/admin/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">autre action</a>
+                    <a class="dropdown-item" href="/admin/index.php?v=1_0">V 1_0</a>
+                    <a class="dropdown-item" href="/admin/index.php?v=1_1">V 1_1</a>
                 </div>
             </li>
         </ul>
